@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bms-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bms
+  template:
+    metadata:
+      labels:
+        app: bms
+    spec:
+      containers:
+      - name: bms-container
+        image: <your-ecr-uri>:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bms-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: bms
+  ports:
+    - port: 80
+      targetPort: 8080
