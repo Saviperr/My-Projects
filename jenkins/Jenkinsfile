@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+
+    environment {
+        AWS_REGION = "ap-south-1"
+        ECR_REPO = "<your-ecr-uri>"
+    }
+
+    stages {
+
+        stage('Clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/staragile2016/FoodAppZomato.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t zomato-app .'
+                sh 'docker tag zomato-app:latest ${ECR_REPO}:latest'
+            }
+        }
+
+        stage('Push to ECR') {
+            steps {
+                sh '''
+                aws ecr get-login-password --region ${AWS_REGION} |                     docker login --username AWS --password-stdin ${ECR_REPO}
+                docker push ${ECR_REPO}:latest
+                '''
+            }
+        }
+
+        stage('Deploy to EKS') {
+            steps {
+                sh 'kubectl apply -f kubernetes/'
+                sh 'kubectl rollout restart deployment/zomato-deployment'
+            }
+        }
+    }
+}
