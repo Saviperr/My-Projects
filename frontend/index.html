@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><title>User Form</title></head>
+<body>
+<h2>User Form</h2>
+<form id="form">
+Name <input type="text" id="name"><br>
+Email <input type="email" id="email"><br>
+<button type="submit">Submit</button>
+</form>
+
+<script>
+document.getElementById("form").addEventListener("submit", async (e)=>{
+e.preventDefault();
+const data = {
+name:document.getElementById("name").value,
+email:document.getElementById("email").value
+};
+
+await fetch("http://EC2_PUBLIC_IP/submit-data",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(data)
+});
+alert("Data Submitted");
+});
+</script>
+</body>
+</html>
