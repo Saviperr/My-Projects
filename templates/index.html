@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kalyan App</title>
+</head>
+<body>
+<h1>🚀 DevOps Flask App</h1>
+
+<form action="/submit" method="POST">
+<input type="text" name="new_message" placeholder="Enter message" required>
+<button type="submit">Send</button>
+</form>
+
+<h2>Messages:</h2>
+<ul>
+{% for msg in messages %}
+<li>{{ msg[0] }}</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
