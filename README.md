@@ -38,4 +38,7 @@ kubectl scale deployment devops-app --replicas=5
 Observe in Grafana dashboards.
 
 ## Author
+
+Kalyan M
+
 DevOps Project
