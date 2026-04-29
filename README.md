@@ -1,41 +1,31 @@
-# 🚀 End-to-End GitOps DevOps Project
+# DevOps CI/CD Pipeline Project
 
-## Overview
-This project demonstrates a complete DevOps pipeline using:
+This project demonstrates a complete CI/CD pipeline using:
+- Jenkins
 - Docker
-- Kubernetes (EKS)
-- GitHub Actions (CI)
-- Argo CD (GitOps CD)
-- Prometheus & Grafana (Monitoring)
+- AWS ECR
+- AWS EKS
+- Kubernetes
 
-## Architecture
-1. Code pushed to GitHub
-2. GitHub Actions builds & pushes Docker image
-3. Argo CD syncs Kubernetes manifests
-4. App deployed to EKS
-5. Prometheus & Grafana monitor system
+## Steps to Run
 
-## Setup Steps
+1. Build Docker Image
+2. Push to AWS ECR
+3. Deploy to Kubernetes (EKS)
+4. Jenkins automates the full pipeline
 
-### 1. Build & Push Docker Image
-Replace YOUR_DOCKER_USERNAME in k8s/deployment.yaml
+## Requirements
 
-### 2. Apply Kubernetes Manifests
-kubectl apply -f k8s/
+- AWS CLI configured
+- Docker installed
+- kubectl installed
+- Jenkins setup with credentials
 
-### 3. Setup Argo CD
-kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+## Run Kubernetes Deployment
 
-### 4. Monitoring
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm install monitoring prometheus-community/kube-prometheus-stack
-
-## Demo
-Scale app:
-kubectl scale deployment devops-app --replicas=5
-
-Observe in Grafana dashboards.
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
 
 ## Author
-DevOps Project
+
+Kalyan
