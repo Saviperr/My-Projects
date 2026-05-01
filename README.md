@@ -21,3 +21,7 @@ https://github.com/Saviperr/My-Projects/tree/Devops-2Tier-Portfolio-App
 ## 👉 jenkins-ecr-eks-cicd-pipeline
 
 [https://github.com/Saviperr/My-Projects/edit/feature/jenkins-ecr-eks-pipeline](https://github.com/Saviperr/My-Projects/tree/feature/jenkins-ecr-eks-pipeline)
+
+## 👨‍💻 KubeInsight: Cloud-Native Observability Platform
+
+https://github.com/Saviperr/My-Projects/tree/KubeInsight
