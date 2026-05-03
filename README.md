@@ -81,19 +81,20 @@ kubectl apply -f k8s/ingress.yaml
 
 ### EKS Cluster
 
-![Cluster](screenshots/eks-cluster.png)
+<img width="1265" height="789" alt="image" src="https://github.com/user-attachments/assets/41af77ee-f000-42e9-98a9-201e77615daa" />
 
 ### Nodes Ready
 
-![Nodes](screenshots/kubectl-nodes.png)
+<img width="1045" height="320" alt="image" src="https://github.com/user-attachments/assets/433c883d-d32b-4bc9-9109-12edb7fe2849" />
 
 ### NGINX Running
 
-![Pods](screenshots/nginx-output.png)
+<img width="1035" height="307" alt="Screenshot 2026-05-03 183546" src="https://github.com/user-attachments/assets/690b8e8f-9fee-4198-9ee7-8532ff7ddff8" />
+
 
 ### Application Output
 
-![Output](screenshots/ingress-output.png)
+<img width="1907" height="667" alt="image" src="https://github.com/user-attachments/assets/9cfa1222-af72-4c5d-9bc9-4c046994402b" />
 
 ---
 
@@ -112,14 +113,5 @@ kubectl apply -f k8s/ingress.yaml
 ```bash
 terraform destroy -auto-approve
 ```
-
----
-
-## ⭐ Why this project stands out
-
-* End-to-end DevOps pipeline (Infra → Deploy → Access)
-* Real cloud environment (AWS)
-* Production-style architecture
-* Hands-on troubleshooting experience
 
 ---
